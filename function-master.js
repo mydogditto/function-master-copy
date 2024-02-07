@@ -1,27 +1,48 @@
 //////////////////////////////////////////////////////////////////////
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//Should take an object and return its values in an array",
 function objectValues(object) {
-    // 
+    // set up an output array
+    let output = []
+    // loop through the object 
+    for(let key in object){
+    // push values to the output array
+    output.push(object[key])
+    // return output array
+}
+return output 
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 2 - Keys to String ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//Should take an object and return all its keys in a string each separated with a space"
 function keysToString(object) {
+    // convert all keys to an array of strings with Object.keys then use join to turn into a string seporated with a space 
+return Object.keys(object).join(" ")
+
 
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 3 - Values to String /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//Should take an object and return all its string values in a string each separated with a space"
 function valuesToString(object) {
-    
-}
-
+    // initialize output array
+    let output = []
+    // itterate through object keys
+    for( let key in object ){
+        // if value is a string
+        if(typeof object[key]=== 'string'){
+        // push to output array
+    output.push(object[key]);
+        //return joined output
+    }
+    } 
+    return output.join(" ")
+} 
 //////////////////////////////////////////////////////////////////////
 // Function 4 - Array or Object //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
