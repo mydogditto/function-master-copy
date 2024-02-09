@@ -48,23 +48,55 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 //Should take one argument and return 'array' if its an array and 'object' if its an object"
 function arrayOrObject(collection) {
-    
+    // test if the collection is an array if true 
+    if(Array.isArray(collection)){
+        return "array"
+    } else{
+         // else return object
+        return "object"
+    }
+
 }
+   
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 5 - Capitalize Word //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//Should take a string of one word, and 
+//return the word with its first letter capitalized"
 function capitalizeWord(string) {
-    
+// use braket sytax to isolate first letter and run to Upper case set to a variable
+let letterFirst = string[0].toUpperCase()
+// slilce the rest of the word at the 1 index set to a variable 
+let restOfWord = string.slice(1)
+
+// return the joined variables 
+return letterFirst + restOfWord
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//Should take a string of words and 
+//return a string with all the words capitalized"
 function capitalizeAllWords(string) {
-    
+ // convert all words in string to an array using string.split(" ")
+ let array = string.split(" ")
+let newArray = []
+ // loop over the array
+ for(let i = 0; i < array.length; i++){
+     // set the result of runing to upperCase on each array[i][0] to a variable 
+    let firstLetters = array[i][0]
+    // set the restult of runing slice(1) on array[i] to a varable 
+    let restOfWords = array[i].slice(1)
+let wholeWord = firstLetters + restOfWords
+newArray.push(wholeWord)
+ }
+let wholeNewWords = newArray.join(" ")
+return wholeNewWords
+
+// return the result of joining the variables 
 }
 
 //////////////////////////////////////////////////////////////////////
