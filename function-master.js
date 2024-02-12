@@ -183,10 +183,14 @@ function addFriend (name, object) {
 // The function should check to see if name is present in the array at the friends property of the object.
 // if yes return true else return false
 function isFriend(name, object) {
-    // if object.friends.includes(name)
-    // retun true
-    // else return false 
-
+    // if object is an object with properties and it has an array of friends
+    if(object && object.friends && Array.isArray(object.friends)){
+ // return true if the input name 
+        return object.friends.includes(name)
+    } else {
+        return false
+    }
+   
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -197,12 +201,20 @@ function isFriend(name, object) {
 // should never return an empty list 
 // should return an array of names
 function nonFriends(name, array) {
-// setup an empty array called output
+// setup an empty array called nonFriends
+var nonFriends = [];
 // loop through the array
-// if array[i].friends does not include name and array[i].name does not = name
-// push array[i].name to output
+for (var i = 0; i < array.length; i++) {
+    // if the friends property of the object does not include input name and object.name does not = name
+  if (array[i].friends.includes(name) === false && array[i].name !== name) {
+    // push the value of the object.name
+    nonFriends.push(array[i].name)
 
-// return array 
+    }
+
+// return array
+  } return nonFriends
+
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -225,11 +237,17 @@ return object
 // if properties on the object match a string in the input array, then remove that value
 // from the input object: the string to be removed can be the key or the value
 function removeProperties(object, array) {
-// loop through the object
-// loop through the array 
-// test if array[i] is = to object ownProperty if true
-// deleat object[array[i]]
-}
+    // loop through object
+    for (let key in object){
+        // loop through the array
+        for (let i = 0; i < array.length; i++) {
+            // test if any keys or values are present by using object.hasOwnProperty(array[i])
+          if (object.hasOwnProperty(array[i])) {
+            delete object[array[i]];
+          }
+        }
+      }
+  }
 
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
