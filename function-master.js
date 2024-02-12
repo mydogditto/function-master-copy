@@ -81,35 +81,41 @@ return letterFirst + restOfWord
 //Should take a string of words and 
 //return a string with all the words capitalized"
 function capitalizeAllWords(string) {
- // convert all words in string to an array using string.split(" ")
- let array = string.split(" ")
-let newArray = []
- // loop over the array
- for(let i = 0; i < array.length; i++){
-     // set the result of runing to upperCase on each array[i][0] to a variable 
-    let firstLetters = array[i][0]
-    // set the restult of runing slice(1) on array[i] to a varable 
-    let restOfWords = array[i].slice(1)
-let wholeWord = firstLetters + restOfWords
-newArray.push(wholeWord)
- }
-let wholeNewWords = newArray.join(" ")
-return wholeNewWords
-
+        // convert all words in string to an array using string.split(" ")
+        let array = string.split(" ")
+       let newArray = []
+        // loop over the array
+        for(let i = 0; i < array.length; i++){
+            // set the result of runing to upperCase on each array[i][0] to a variable 
+           let firstLetters = array[i][0].toUpperCase()
+       console.log(firstLetters)
+           // set the restult of runing slice(1) on array[i] to a varable 
+           let restOfWords = array[i].slice(1)
+       let wholeWord = firstLetters + restOfWords
+       newArray.push(wholeWord)
+         
+        }
+        // return the result of joining the variables 
+       let wholeNewWords = newArray.join(" ")
+       return wholeNewWords
+       }; 
 // return the result of joining the variables 
-}
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //Should take an object with a name property and return 'Welcome <Name>!'",
 function welcomeMessage(object) {
-// make variable from the name property
-// turn the fist letter to uppercase
-// slice the rest of the name set to a varable using slice 
-// return the whole thing concotinaten using the 2015 syntax 
-return 
-}
+    // make variable from the name property
+    let name = object.name
+    // turn the fist letter to uppercase
+    let nameUpper = name[0].toUpperCase()
+    // slice the rest of the name set to a varable using slice 
+    let restOfWord = name.slice(1)
+    // return the whole thing concotinaten using the 2015 syntax 
+    return  `Welcome ${nameUpper}${restOfWord}!`
+    } 
 
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
@@ -117,8 +123,13 @@ return
 //Should take an object with a name an a species and return '<Name> is a <Species>'"
 //edge case the first letter of name and the first letter of species must be capitalized 
 function profileInfo(object) {
-
-
+let nameUpperFirst = object.name[0].toUpperCase()
+let speciesUpper = object.species[0].toUpperCase()
+let nameRest = object.name.slice(1)
+let speciesRest = object.species.slice(1)
+let totalName = nameUpperFirst + nameRest
+let totalSpecies = speciesUpper + speciesRest
+return `${totalName} is a ${totalSpecies}`
 
 }
 
@@ -129,9 +140,13 @@ function profileInfo(object) {
 //return them as a string separated by a space, 
 //if there are no noises return 'there are no noises'
 function maybeNoises(object) {
+
 // if object.noises is an array (Array.isArray) === truthy
+if(Array.isArray(object.noises) && object.noises.length !== 0)
 // use the join method with a space to concotinate them 
+return object.noises.join(" ")
 // otherwise return 'there are no noises 
+return "there are no noises"
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -140,11 +155,12 @@ function maybeNoises(object) {
 //Should take a string of words and a word and 
 //return true if <word> is in <string of words>, otherwise return false."
 function hasWord(string, word) {
-// convert string to array string.split(" ") set to a variable 
-// loop through array
-// if word is in the array retun true 
-// otherwise return false 
-
+// use the includes method to determon if word is in string
+if(string.includes(word)){
+    // return true 
+    return true
+} // otherwise return false 
+return false 
 }
 
 //////////////////////////////////////////////////////////////////////
